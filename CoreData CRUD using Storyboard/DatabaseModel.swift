@@ -39,6 +39,30 @@ class DatabaseModel {
         
     }
     
+    func getPersonData() -> [Person]{
+        
+        var person = [Person]()
+        
+        let fetchData = NSFetchRequest<NSManagedObject>(entityName: "Person")
+        
+        do{
+            
+            person = try context.fetch(fetchData) as! [Person]
+            
+        }catch{
+            
+            print("Faild to fetch data")
+        }
+        
+        
+        
+        
+        return person
+        
+    }
+    
+    
+    
     
     
 }

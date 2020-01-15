@@ -15,10 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtCity: UITextField!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    
 
     @IBAction func saveActionBtn(_ sender: UIButton) {
         
@@ -26,10 +29,24 @@ class ViewController: UIViewController {
         
         DatabaseModel.dbmInstance.savePersonData(data: dic)
         
+        txtName.text?.removeAll()
+        txtCity.text?.removeAll()
+        
+        
         
         
         
     }
+    
+    @IBAction func showActionBtn(_ sender: UIButton) {
+        
+        let showVC = self.storyboard?.instantiateViewController(identifier: "ShowViewController") as! ShowViewController
+        self.navigationController?.pushViewController(showVC, animated: true)
+        
+    }
+    
+    
+    
     
 }
 
