@@ -16,6 +16,7 @@
 		2AB7C28E23CF985F0083C668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AB7C28C23CF985F0083C668 /* LaunchScreen.storyboard */; };
 		2AB7C29723CF9C6C0083C668 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7C29523CF9C6C0083C668 /* Person+CoreDataClass.swift */; };
 		2AB7C29823CF9C6C0083C668 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7C29623CF9C6C0083C668 /* Person+CoreDataProperties.swift */; };
+		2AB7C29A23CF9EC70083C668 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7C29923CF9EC70083C668 /* DatabaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2AB7C28F23CF985F0083C668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AB7C29523CF9C6C0083C668 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2AB7C29623CF9C6C0083C668 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2AB7C29923CF9EC70083C668 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				2AB7C27E23CF98590083C668 /* AppDelegate.swift */,
 				2AB7C28023CF98590083C668 /* SceneDelegate.swift */,
 				2AB7C28223CF98590083C668 /* ViewController.swift */,
+				2AB7C29923CF9EC70083C668 /* DatabaseModel.swift */,
 				2AB7C28423CF98590083C668 /* Main.storyboard */,
 				2AB7C28A23CF985F0083C668 /* Assets.xcassets */,
 				2AB7C28C23CF985F0083C668 /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				2AB7C29823CF9C6C0083C668 /* Person+CoreDataProperties.swift in Sources */,
 				2AB7C29723CF9C6C0083C668 /* Person+CoreDataClass.swift in Sources */,
 				2AB7C27F23CF98590083C668 /* AppDelegate.swift in Sources */,
+				2AB7C29A23CF9EC70083C668 /* DatabaseModel.swift in Sources */,
 				2AB7C28123CF98590083C668 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

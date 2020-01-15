@@ -9,12 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtCity: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func saveActionBtn(_ sender: UIButton) {
+        
+        let dic : [String : String] = ["name":txtName.text! ,"city":txtCity.text!]
+        
+        DatabaseModel.dbmInstance.savePersonData(data: dic)
+        
+        
+        
+        
+    }
+    
 }
 
