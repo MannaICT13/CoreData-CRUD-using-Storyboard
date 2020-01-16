@@ -62,6 +62,25 @@ class DatabaseModel {
     }
     
     
+    func deletePersonData(index : Int) {
+        
+        let person = getPersonData()
+        let objectToDelete = person[index] as NSManagedObject
+         
+        context.delete(objectToDelete)
+        do{
+            try context.save()
+            
+        }catch{
+            
+            print("Faild to delete")
+        }
+        
+    }
+    
+    
+    
+    
     
     
     

@@ -39,6 +39,10 @@ extension ShowViewController : UITableViewDataSource,UITableViewDelegate {
         return person.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
@@ -49,5 +53,24 @@ extension ShowViewController : UITableViewDataSource,UITableViewDelegate {
         return cell;
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            
+            self.person.remove(at: indexPath.row)
+            
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            DatabaseModel.dbmInstance.deletePersonData(index: indexPath.row)
+
+            
+            
+        }
+    }
     
 }
