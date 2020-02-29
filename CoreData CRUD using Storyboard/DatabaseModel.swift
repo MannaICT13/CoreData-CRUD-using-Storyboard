@@ -12,7 +12,7 @@ import UIKit
 
 class DatabaseModel {
     
-    static var dbmInstance = DatabaseModel()
+    static var dbmInstance = DatabaseModel() //Singleton Model
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -31,6 +31,7 @@ class DatabaseModel {
         }catch{
             
             print("Faild to save Data")
+            
             
         }
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,PassData {
     
 
     @IBOutlet weak var txtName: UITextField!
@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     
@@ -41,8 +40,16 @@ class ViewController: UIViewController {
     @IBAction func showActionBtn(_ sender: UIButton) {
         
         let showVC = self.storyboard?.instantiateViewController(identifier: "ShowViewController") as! ShowViewController
+        showVC.delegate = self
         self.navigationController?.pushViewController(showVC, animated: true)
         
+        
+    }
+    
+    
+    func dataPassing(data: [String : String]) {
+        txtName.text = data["name"]
+        txtCity.text = data["city"]
     }
     
     
