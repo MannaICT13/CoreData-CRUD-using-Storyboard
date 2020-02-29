@@ -10,7 +10,7 @@ import UIKit
 
 protocol PassData {
     
-    func dataPassing(data : [String:String])
+    func dataPassing(data : [String:String],index : Int,isEdit: Bool)
 }
 
 class ShowViewController: UIViewController {
@@ -104,7 +104,7 @@ extension ShowViewController : UITableViewDataSource,UITableViewDelegate {
         let edit = UIContextualAction(style: .normal, title: "Edit") { (editAction, view, nil) in
             
             let dic = ["name":self.person[indexPath.row].name,"city":self.person[indexPath.row].city]
-            self.delegate.dataPassing(data: dic as! [String : String])
+            self.delegate.dataPassing(data: dic as! [String : String],index: indexPath.row, isEdit: true)
             self.navigationController?.popViewController(animated: true)
         }
         

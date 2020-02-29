@@ -14,7 +14,8 @@ class ViewController: UIViewController,PassData {
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtCity: UITextField!
     
-    
+    var i = Int()
+    var isUpdate = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,24 @@ class ViewController: UIViewController,PassData {
         
         let dic : [String : String] = ["name":txtName.text! ,"city":txtCity.text!]
         
+        if(isUpdate){
+            
+            DatabaseModel.dbmInstance.updateData(data: dic, index: i)
+            
+
+            txtName.text?.removeAll()
+            txtCity.text?.removeAll()
+            
+        }else{
+        
+        
         DatabaseModel.dbmInstance.savePersonData(data: dic)
+        
         
         txtName.text?.removeAll()
         txtCity.text?.removeAll()
         
+        }
         
         
         
@@ -47,9 +61,12 @@ class ViewController: UIViewController,PassData {
     }
     
     
-    func dataPassing(data: [String : String]) {
+    func dataPassing(data: [String : String],index:Int,isEdit:Bool) {
         txtName.text = data["name"]
         txtCity.text = data["city"]
+        i = index
+        isUpdate = isEdit
+        
     }
     
     

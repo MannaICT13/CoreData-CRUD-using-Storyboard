@@ -80,7 +80,24 @@ class DatabaseModel {
     }
     
     
-    
+    func updateData(data: [String:String],index : Int){
+        
+        let person = getPersonData()
+        
+        person[index].name = data["name"]
+        person[index].city = data["city"]
+        
+        do{
+            try context.save()
+            
+        }catch{
+            print("Faild to update")
+        }
+        
+        
+        
+        
+    }
     
     
     
