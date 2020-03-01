@@ -13,7 +13,7 @@ protocol PassData {
     func dataPassing(data : [String:String],index : Int,isEdit: Bool)
 }
 
-class ShowViewController: UIViewController {
+class ShowViewController: UIViewController,UISearchBarDelegate,UISearchControllerDelegate,UISearchResultsUpdating{
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,18 +21,63 @@ class ShowViewController: UIViewController {
     var person = [Person]()
     var delegate:PassData!
     
+    var searchData = [String:String]()
+    
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
         person = DatabaseModel.dbmInstance.getPersonData()
 
-     
+        loadData()
+     createSearchbar()
     }
     
-
+    func loadData(){
+        person = DatabaseModel.dbmInstance.getPersonData()
+        
+        
+    }
+    
+    
+    private func createSearchbar(){
+        
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self as UISearchResultsUpdating
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        
+    }
+    
+    
+     public func updateSearchResults(for searchController: UISearchController) {
+        
+           guard let searchText = searchController.searchBar.text else{return}
+        
+        if searchText == ""{
+          
+            loadData()
+               
+           }else{
+           
+            loadData()
+            person = person.filter({
+                        //($0.name?.contains(searchText))!
+                ($0.name?.localizedCaseInsensitiveContains(searchText))! ||
+                    ($0.city?.localizedCaseInsensitiveContains(searchText))!
+                    })
+           }
+           
+        tableView.reloadData()
+       }
     
 
 }
+
+
 extension ShowViewController : UITableViewDataSource,UITableViewDelegate {
     
     
