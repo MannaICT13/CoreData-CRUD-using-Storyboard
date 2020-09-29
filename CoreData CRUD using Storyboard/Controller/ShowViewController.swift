@@ -19,6 +19,7 @@ class ShowViewController: UIViewController,UISearchBarDelegate,UISearchControlle
     @IBOutlet weak var tableView: UITableView!
     
     var person = [Person]()
+    
     var delegate:PassData!
     
     var searchData = [String:String]()

@@ -15,6 +15,7 @@ class ViewController: UIViewController,PassData {
     @IBOutlet weak var txtCity: UITextField!
     
     var i = Int()
+    
     var isUpdate = Bool()
     
     override func viewDidLoad() {

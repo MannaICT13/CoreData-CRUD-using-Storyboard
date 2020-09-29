@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 import UIKit
 
-class DatabaseModel {
+class DatabaseModel: NSObject {
     
-    static var dbmInstance = DatabaseModel() //Singleton Model
+     static let dbmInstance = DatabaseModel() //Singleton Model
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -69,6 +69,7 @@ class DatabaseModel {
         let objectToDelete = person[index] as NSManagedObject
          
         context.delete(objectToDelete)
+        
         do{
             try context.save()
             
